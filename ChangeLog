@@ -1,3 +1,11 @@
+2017.05.04 (AO)
+Source moved to GitHub repository. To compile:
+git clone 
+autoreconf -vif
+./configure
+make distcheck
+
+
 2012.08.17 (AO)
 
 Numerous minor changes and bugfixes:
