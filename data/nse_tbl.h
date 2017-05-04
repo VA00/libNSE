@@ -1,0 +1,10 @@
+#define kT_MIN_nse 0.2
+#define kT_MAX_nse 1.
+#define N_kT_nse 41
+#define lg_rho_MIN_nse 6.
+#define lg_rho_MAX_nse 10.
+#define N_lg_rho_nse 9
+#define N_Ye_nse 41
+#define niso 46
+#define Z_max_nse 32
+#define N_max_nse 33
