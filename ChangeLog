@@ -1,0 +1,52 @@
+2012.08.17 (AO)
+
+Numerous minor changes and bugfixes:
+
+- dependence on libinterp removed from configure.ac, because
+NSE interpolation requires on-fly grid construction,
+and only trilinear_interp_unit_cube() has been used - but this is just a single
+line of code. Now it is incuded as "inline" function directly in the code.
+
+- improvements in NSE_pn_table_generator.nb:
+a) Generation of the partition function table takes a lot of time,
+so now it is generated one nuclei by one and stored on disk. You can
+stop and resume calculations later.
+
+b) minor bugs: isotope list must include protons and neutron !
+
+c) Ye=0 and Ye=1 are included by default with Xp=0, Xn=1 and
+Xp=1, Xn=0, respectively.
+
+
+- NSE_pn_table_parser.c :
+
+Design error: to create new np_table.c you must recompile with new
+nse_tbl.h, but old is still installed. Now this util is not compiled
+automatically. You must do this manually:
+gcc NSE_pn_table_parser.c -o NSE_pn_table_parser
+ 
+
+- nse.c
+
+Now all grids (Ye, rho, and T9) are arbitrary user-supplied tables.
+In practice rho and T9 are still regular grids, but it is not obligatory.
+In astrophysics, one frequently uses irregular spacig for e.g. T9. Accordingly,
+fixed steps (delta_lg_rho_nse, delta_kT_nse) removed from the code.
+
+
+
+2010.09.10 (AO)
+Added trilinear interpolation for NSE,
+NSE_enum_trilinear()
+
+This require libinterp, recently forked
+from psns2, compiled and installed.
+The ./configure script should detect this;
+is libinterp is not found legacy
+staircase interpolation for Ye + bilinear
+for T9-rho mix is used:
+NSE_enum_staircase()
+
+
+
+2010.07.27 Fork from psns2 0.2
