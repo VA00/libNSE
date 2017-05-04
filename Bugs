@@ -1,0 +1,21 @@
+BUG 1 (2010.07.23)
+
+If building new NSE dataset, np_table.c might be temporarily erased,
+and entire code fail to build. 
+
+
+Workaround:
+Required NSE_pn_table_parser should be created as follows:
+gcc NSE_pn_table_parser.c -o NSE_pn_table_parser
+
+Then, re-create missing file "np_table.c":
+NSE_pn_table_parser >np_table.c
+
+
+BUG 2
+
+NSE_enum called with position larger than total number of nuclides cause
+crash.
+
+Workaround:
+Check for n<Nmax manually in your code.
