@@ -6,7 +6,7 @@ Written by A. Odrzywolek
 #include <string.h>
 #include <unistd.h>
 #include <math.h>
-#include "nse_tbl.h"
+#include "../data/nse_tbl.h"
 
 int main( int argc, char** argv)
 {
